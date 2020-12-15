@@ -16,21 +16,25 @@ createUser = (req, res) => {
 		return res.status(400).json({ success: false, error: err });
 	}
 
-	user
-		.save()
-		.then(() => {
-			return res.status(201).json({
-				success: true,
-				id: user._id,
-				message: "User created!",
+	if (Users.findOne({ name: user.name })) {
+		res.status(400).json({ success: false, error: "user already exists!" });
+	} else {
+		user
+			.save()
+			.then(() => {
+				return res.status(201).json({
+					success: true,
+					id: user._id,
+					message: "User created!",
+				});
+			})
+			.catch((error) => {
+				return res.status(400).json({
+					error,
+					message: "User not created!",
+				});
 			});
-		})
-		.catch((error) => {
-			return res.status(400).json({
-				error,
-				message: "User not created!",
-			});
-		});
+	}
 };
 
 updateUser = async (req, res) => {
