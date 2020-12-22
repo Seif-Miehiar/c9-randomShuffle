@@ -19,18 +19,18 @@ class Links extends Component {
     return (
       <React.Fragment>
         <Link to="/" className="navbar-brand">
-          My first MERN Application
+          RBK Cohort 9 Shuffle Random Student
                 </Link>
         <Collapse>
           <List>
             <Item>
-              <Link to="/movies/list" className="nav-link">
-                List Movies
+              <Link to="/users/list" className="nav-link">
+                List Users
                             </Link>
             </Item>
             <Item>
-              <Link to="/movies/create" className="nav-link">
-                Create Movie
+              <Link to="/users/create" className="nav-link">
+                Create User
                             </Link>
             </Item>
           </List>
