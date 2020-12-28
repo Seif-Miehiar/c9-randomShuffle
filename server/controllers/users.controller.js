@@ -1,6 +1,7 @@
 const Users = require("../models/users.model");
 
 createUser = (req, res) => {
+	console.log("Create user controller", req.body);
 	const body = req.body;
 
 	if (!body) {
@@ -11,12 +12,14 @@ createUser = (req, res) => {
 	}
 
 	const user = new Users(body);
+	console.log("users: ", user);
 
 	if (!user) {
 		return res.status(400).json({ success: false, error: err });
 	}
 
-	if (Users.findOne({ name: user.name })) {
+	if (!Users.findOne({ name: user.name })) {
+		// console.log(Users.findOne({ name: user.name }));
 		res.status(400).json({ success: false, error: "user already exists!" });
 	} else {
 		user

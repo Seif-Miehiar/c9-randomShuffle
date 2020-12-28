@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Switch } from "react-router-dom";
-import { NavBar, LandingPage } from "../components";
+import { NavBar, LandingPage, Wheel } from "../components";
 import "bootstrap/dist/css/bootstrap.min.css";
 // import { MoviesList, MoviesInsert, MoviesUpdate } from "../pages/index";
 function App() {

@@ -34,6 +34,15 @@ const LandingPage = () => {
     // console.log(shuffledStudent)
     console.log(randomUser.user)
   }
+  var randomName = ""
+  const loopShuffle = (array) => {
+    let size = array.length;
+
+    for (let i = 0; i < size; i++) {
+      randomName = array[i].user.name
+    }
+    return randomUser.user.name;
+  }
 
 
   return <div>
@@ -42,7 +51,7 @@ const LandingPage = () => {
       Shuffle
     </button>
     <div>
-      Today's Technical Solution is on {randomUser.user.name}
+      Today's Technical Solution is on  {loopShuffle(students)}
     </div>
     {/* <div key={shuffledStudent._id}>
       Today's Technical Solution is on {shuffledStudent}
